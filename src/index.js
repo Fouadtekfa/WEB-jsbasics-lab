@@ -39,7 +39,7 @@ export const longestString = arr => {
  * @param {String} str
  */
 export const reverseString = str => {
-  // TODO
+    return str.split("").reverse().join("");
 };
 
 /**
