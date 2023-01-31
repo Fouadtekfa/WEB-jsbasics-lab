@@ -50,7 +50,7 @@ export const reverseString = str => {
  * @param {String} str
  */
 export const isPalindrome = str => {
-  // TODO
+    return  reverseString(str).toUpperCase()===str.toUpperCase();
 };
 
 /**
@@ -58,7 +58,15 @@ export const isPalindrome = str => {
  * Return the sum all the numbers you find, anywhere in the nest of arrays.
  */
 export const nestedSum = arr => {
-  // TODO
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if ( typeof arr[i] === 'number') {
+            sum = sum+arr[i];
+        }else if (Array.isArray(arr[i])) {
+            sum += nestedSum(arr[i]);
+        }
+    }
+    return sum;
 };
 
 /**
