@@ -205,7 +205,80 @@ describe('JS Basics Tests', () => {
    *
    */
   describe('Test permutations', () => {
-    // TODO
+    test('vide' , ()=>{
+      const monTab = [];
+      expect(permutations(monTab)).toEqual([]);
+    });
+    test('Avec un element' , ()=>{
+      const monTab = [1];
+      expect(permutations(monTab)).toEqual([1]);
+    });
+    test('Avec deux elements' , ()=>{
+      const monTab = ['1' , '2'];
+      const attendu = [
+          ['1' , '2'],
+          ['2' , '1']
+      ];
+      expect(permutations(monTab)).toEqual(attendu);
+    });
+    test('avec trois éléments ', () => {
+      const monTab = [0,1,2];
+      const attendu = [
+          [ 0, 1, 2 ],
+          [ 0, 2, 1 ],
+          [ 1, 0, 2 ],
+          [ 1, 2, 0 ],
+          [ 2, 0, 1 ],
+          [ 2, 1, 0 ]
+      ];
+      expect(permutations(monTab)).toEqual(attendu);
+    });
+
+
+    test('avec deux éléments identiques ', () => {
+      const monTab = [0,0];
+      const attendu = [
+         [0,0],
+         [0,0]
+      ];
+      expect(permutations(monTab)).toEqual(attendu);
+    });
+    test('avec trois éléments identiques ', () => {
+      const monTab = [0,0,0];
+      const attendu = [
+        [0,0,0],
+        [0,0,0],
+        [0,0,0],
+        [0,0,0],
+        [0,0,0],
+        [0,0,0]
+      ];
+      expect(permutations(monTab)).toEqual(attendu);
+    });
+
+    test('avec des doublons  ', () => {
+      const monTab = [0,1,1];
+      const attendu = [
+        [ 0, 1, 1 ],
+        [ 0, 1, 1 ],
+        [ 1, 0, 1 ],
+        [ 1, 1, 0 ],
+        [ 1, 0, 1 ],
+        [ 1, 1, 0 ]
+      ];
+      expect(permutations(monTab)).toEqual(attendu);
+    });
+    test(' un tableau qui contient un autre tableau ' , () => {
+      const monTab = [1, [2, 3]];
+      const attendu = [
+          [1, [2, 3]],
+          [[2,3], 1]
+      ];
+      expect(permutations(monTab)).toEqual(attendu);
+    });
+
+
+
   });
 
   /**
