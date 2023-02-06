@@ -50,7 +50,7 @@ export const reverseString = str => {
  * @param {String} str
  */
 export const isPalindrome = str => {
-    return  reverseString(str).toUpperCase()===str.toUpperCase();
+        return  reverseString(str).toUpperCase()===str.toUpperCase()
 };
 
 /**
@@ -88,7 +88,14 @@ export const nestedSum = arr => {
  * @param  {objects} elms
  */
 export const retireDe = (tab, ...elms) => {
-  // TODO
+    for (let i = 0; i < elms.length; i++) {
+        let index = tab.indexOf(elms[i]);
+        while (index >=0 ) {
+            tab.splice(index, 1);
+            index = tab.indexOf(elms[i]);
+        }
+    }
+    return tab;
 };
 
 /**
