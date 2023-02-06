@@ -7,7 +7,7 @@ import {
   nestedSum,
   retireDe,
   aplatirRecursif,
-  permutations,
+  permutations, echantillon,
 } from '../src';
 
 describe('JS Basics Tests', () => {
@@ -291,7 +291,39 @@ describe('JS Basics Tests', () => {
    *
    */
   describe('Test echantillon', () => {
-    // TODO
+
+    test(' tableau vide', () => {
+      let monTab = [];
+      expect(echantillon(monTab)).toEqual();
+    });
+    test('tableau à un seul élément ', () => {
+      let monTab = ['a'];
+      expect(echantillon(monTab)).toEqual('a');
+    });
+    test('plusieurs éléments avec  random=0 ', () => {
+      Math.random = jest.fn(() => 0);
+      let resultat = echantillon(['a', 'b', 'c']);
+      expect(resultat).toEqual('a');
+    });
+    test('plusieurs  éléments de tout type avec random=0,999 ', () => {
+      Math.random = jest.fn(() => 0.9999);
+      let resultat = echantillon(['a', 4, 'b',true]);
+      expect(resultat).toEqual(true);
+    });
+
+    test('plusieurs  éléments  avec random=0,5 ', () => {
+      Math.random = jest.fn(() => 0.5);
+      let resultat = echantillon([1, 'b', 'c']);
+      expect(resultat).toEqual('b');
+    });
+
+    test('plusieurs element  random ', () => {
+      let monTab = [false, 5, '4'];
+      let resultat = echantillon(monTab);
+      expect(monTab.includes(resultat));
+    });
+
+
   });
 
   /**
