@@ -174,7 +174,16 @@ export const echantillon = tab => tab[Math.floor(Math.random() * tab.length)];
  * @param {string} fin
  */
 export const enumerer = (tab, separateur = ', ', fin = separateur) => {
-  // TODO
+    let resultat = '';
+        for (let i = 0; i < tab.length; i++) {
+            resultat += tab[i];
+        if (i === tab.length - 2) {
+            resultat += fin;
+        } else if (i !== tab.length - 1) {
+            resultat += separateur;
+        }
+        }
+    return resultat;
 };
 
 /**
@@ -185,5 +194,5 @@ export const enumerer = (tab, separateur = ', ', fin = separateur) => {
  * Utiliser `Array.prototype.sort()`, l'opérateur de destructuration (...) et `Array.prototype.slice()`
  */
 export const nMax = (tab, n = 1) => {
-  //TODO
+
 };

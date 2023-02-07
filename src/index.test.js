@@ -8,6 +8,7 @@ import {
   retireDe,
   aplatirRecursif,
   permutations, echantillon,
+  enumerer,
 } from '../src';
 
 describe('JS Basics Tests', () => {
@@ -339,7 +340,32 @@ describe('JS Basics Tests', () => {
    * Attention aux cas particuliers (tableaux à 0, 1 ou 2 éléments.)
    */
   describe('Test enumerer', () => {
-    // TODO
+    test('  cas particulier tableau vide', () => {
+      expect(enumerer([], ',', 'et')).toEqual('');
+    });
+
+    test(' cas particulier tableau à un element', () => {
+      expect(enumerer(['Riri'], ',', 'et')).toEqual('Riri');
+    });
+
+    test(' cas particulier tableau à deux éléments', () => {
+      expect(enumerer(['Riri','Fifi'], '', ' et ')).toEqual('Riri et Fifi');
+    });
+    test('tableau à trois éléments', () => {
+      expect(enumerer(['Riri','Fifi','Loulou'], ', ', ' et ')).toEqual('Riri, Fifi et Loulou');
+    });
+    test('tableau à trois éléments cas par défaut ', () => {
+      expect(enumerer(['Riri','Fifi','Loulou'])).toEqual('Riri, Fifi, Loulou');
+    });
+    test('tableau à deux éléments cas par défaut ', () => {
+      expect(enumerer(['Riri','Fifi'])).toEqual('Riri, Fifi');
+    });
+    test('tableau à un élément cas par défaut ', () => {
+      expect(enumerer(['Riri'])).toEqual('Riri');
+    });
+    test('tableau melange entier chaine de caractère ', () => {
+      expect(enumerer([1,'+',2,3],' ' , '= ')).toEqual('1 + 2= 3');
+    });
   });
 
   /**
