@@ -7,6 +7,7 @@ export function Circle(x,y,radius) {
     let YGlobal=y;
     let RadiusGlobal=radius;
     let tab=[XGlobal,YGlobal];
+    let AreaGlobal = Math.pow(tab, 2) * Math.PI;
 
     let creatProperty=(prop,$this,getFunction,setFunction)=>{
 
@@ -42,7 +43,15 @@ export function Circle(x,y,radius) {
         enumerable : false,
     });
 
+    creatProperty('area',this,() => AreaGlobal,
+        (val) => {
+            if(val >= 0){
+                AreaGlobal = val;
+                RadiusGlobal = Math.sqrt(val / Math.PI);
 
+            }
+            else throw new Error("l'aire doit etre positive");
 
+        });
 
 }
