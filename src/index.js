@@ -111,13 +111,13 @@ export const retireDe = (tab, ...elms) => {
  */
 export const aplatirRecursif = tab => {
     let tabSipmle =[];
-    tab.forEach((el, i) => {
+    for (const el of tab)  {
         if (Array.isArray(el)){
             tabSipmle =tabSipmle.concat(aplatirRecursif(el))
         }else {
-            tabSipmle.push(tab[i]);
+            tabSipmle.push(el);
         }
-    });
+    }
 
     return tabSipmle;
 };
