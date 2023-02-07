@@ -9,6 +9,7 @@ import {
   aplatirRecursif,
   permutations, echantillon,
   enumerer,
+  nMax,
 } from '../src';
 
 describe('JS Basics Tests', () => {
@@ -384,6 +385,61 @@ describe('JS Basics Tests', () => {
    *
    */
   describe('Test nMax', () => {
-    // TODO
+    test('  cas particulier tableau vide cas n par  defaut', () => {
+      expect(nMax([])).toEqual([]);
+    });
+    test(' cas particulier tableau vide cas n>1 ', () => {
+      expect(nMax([],5)).toEqual([]);
+    });
+    test('verfier que on modifiers pas notre tableau ', () => {
+      let monTab = [5, [4], [[3], 2], [1], 0];
+      let nMaxMont=nMax(monTab,2)
+      expect(monTab).toEqual(([5, [4], [[3], 2], [1], 0]));
+    });
+
+   // nMax([1, 2, 3]); // [3]
+    test('tableau non vide cas par défaut ', () => {
+      let monTab = [1, 2, 3];
+      let attendu=[3]
+      expect(nMax(monTab)).toEqual(attendu);
+    });
+
+   // nMax([1, 2, 3], 2); // [3,2]
+    test('tableau non vide n>1 ', () => {
+      let monTab = [1, 2, 3];
+      let attendu=[3,2];
+      expect(nMax(monTab,2)).toEqual(attendu);
+    });
+
+    test('tableau non vide n>1 ', () => {
+      let monTab = [1, 2, 3];
+      let attendu=[3,2];
+      expect(nMax(monTab,2)).toEqual(attendu);
+    });
+//    nMax([1, 2, 3], 20); // [1,2,3]
+
+    test('tableau non vide n>taille de tableau ', () => {
+      let monTab = [1, 2, 3];
+      let attendu=[3,2,1];
+      expect(nMax(monTab,20)).toEqual(attendu);
+    });
+   // nMax(['1', '2', 3], 2); // [3]
+    test('tableau non vide des donner de tout type meme avec des réel', () => {
+      let monTab = [1, '2', 3,true,6.6];
+      let attendu=[6.6,3];
+      expect(nMax(monTab,2)).toEqual(attendu);
+    });
+    test('tableau non vide qui ne contient aucun nombre', () => {
+      let monTab = ['1', '2', '3',false,true];
+      let attendu=[];
+      expect(nMax(monTab,2)).toEqual(attendu);
+    });
+
+    test(' tableaux profondément imbriqués', () => {
+      let monTab = [1, 2, [3, 4, 5, [6, 7, [8, 9, 10, [11, 12, [13], 14, 15], 16], 17, 18], 19, 20], 21];
+      let attendu =[21,20,19,18,17,16,15,14,13,12,11,10,9,8,7];
+      expect(nMax(monTab,15)).toEqual(attendu);
+    });
+
   });
 });
