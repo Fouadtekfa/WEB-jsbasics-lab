@@ -393,14 +393,14 @@ describe('JS Basics Tests', () => {
     });
     test('verfier que on modifiers pas notre tableau ', () => {
       let monTab = [5, [4], [[3], 2], [1], 0];
-      let nMaxMont=nMax(monTab,2)
+      let nMaxMont=nMax(monTab,2);
       expect(monTab).toEqual(([5, [4], [[3], 2], [1], 0]));
     });
 
    // nMax([1, 2, 3]); // [3]
     test('tableau non vide cas par défaut ', () => {
       let monTab = [1, 2, 3];
-      let attendu=[3]
+      let attendu=[3];
       expect(nMax(monTab)).toEqual(attendu);
     });
 

@@ -17,17 +17,16 @@ export function Circle(x,y,radius) {
             enumerable : false,
         });
 
-    }
+    };
     creatProperty('x',this,() => XGlobal);
     creatProperty('y',this,() => YGlobal);
     creatProperty('radius',this,() => RadiusGlobal,
     (val) => {
-        if(val >= 0) RadiusGlobal = val;
-         else throw new Error("le rayon doit etre positive");
+        if(val >= 0){ RadiusGlobal = val;}
+         else{ throw new Error("le rayon doit etre positive");}
 
     });
 
-   //creatProperty('coords',tab,this);
     Object.defineProperty(this, 'coords', {
         get: ()=>  tab,
         enumerable : false,
@@ -50,7 +49,7 @@ export function Circle(x,y,radius) {
                 RadiusGlobal = Math.sqrt(val / Math.PI);
 
             }
-            else throw new Error("l'aire doit etre positive");
+            else {throw new Error("l'aire doit etre positive");}
 
         });
    //Circle.distance pour appeler la méthode sans avoir besoin de créer un objet
@@ -59,6 +58,10 @@ export function Circle(x,y,radius) {
         const diffY = c2.y - c1.y;
           //diffX²+diffY²
         return Math.hypot(diffX, diffY);
+    };
+
+    Circle.doIntersect = (c1, c2) => {
+        return Circle.distance(c1, c2)<= (c1.radius + c2.radius);
     };
 
 }

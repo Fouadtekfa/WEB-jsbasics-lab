@@ -50,7 +50,7 @@ export const reverseString = str => {
  * @param {String} str
  */
 export const isPalindrome = str => {
-        return  reverseString(str).toUpperCase()===str.toUpperCase()
+        return  reverseString(str).toUpperCase()===str.toUpperCase();
 };
 
 /**
@@ -66,6 +66,7 @@ export const nestedSum = arr => {
             sum += nestedSum(arr[i]);
         }
     }
+
     return sum;
 };
 
@@ -113,7 +114,7 @@ export const aplatirRecursif = tab => {
     let tabSipmle =[];
     for (const el of tab)  {
         if (Array.isArray(el)){
-            tabSipmle =tabSipmle.concat(aplatirRecursif(el))
+            tabSipmle =tabSipmle.concat(aplatirRecursif(el));
         }else {
             tabSipmle.push(el);
         }
@@ -197,7 +198,7 @@ export const nMax = (tab, n = 1) => {
     let tab1=tab.flat(Infinity).filter(el => {
         return typeof el == "number" ;
     });
-    return [...tab1].sort((a, b) => b - a).slice(0, n)
+    return [...tab1].sort((a, b) => b - a).slice(0, n);
 
 
 };
