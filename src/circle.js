@@ -53,5 +53,12 @@ export function Circle(x,y,radius) {
             else throw new Error("l'aire doit etre positive");
 
         });
+   //Circle.distance pour appeler la méthode sans avoir besoin de créer un objet
+    Circle.distance = (c1, c2) => {
+        const diffX = c2.x - c1.x;
+        const diffY = c2.y - c1.y;
+          //diffX²+diffY²
+        return Math.hypot(diffX, diffY);
+    };
 
 }
