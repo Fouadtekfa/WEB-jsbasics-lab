@@ -197,12 +197,6 @@ export const nMax = (tab, n = 1) => {
     let tab1=tab.flat(Infinity).filter(el => {
         return typeof el == "number" ;
     });
-    /*let newTab = [];
-    tab1.forEach((idx, el) => {
-        if(el.isNumber()) {
-            newTab.push(el);
-        }
-    })*/
     return [...tab1].sort((a, b) => b - a).slice(0, n)
 
 
